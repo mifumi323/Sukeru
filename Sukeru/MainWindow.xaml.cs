@@ -34,5 +34,10 @@ namespace MifuminSoft.Sukeru
                 }
             }
         }
+
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
