@@ -7,5 +7,11 @@ namespace MifuminSoft.Sukeru
     /// </summary>
     public partial class App : Application
     {
+        public static string[] CommandLineArgs { get; private set; }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            CommandLineArgs = e.Args;
+        }
     }
 }

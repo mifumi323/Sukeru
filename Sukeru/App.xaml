@@ -1,8 +1,8 @@
-﻿<Application x:Class="Sukeru.App"
+﻿<Application x:Class="MifuminSoft.Sukeru.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sukeru"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:MifuminSoft.Sukeru"
+             StartupUri="MainWindow.xaml" Startup="Application_Startup">
     <Application.Resources>
          
     </Application.Resources>
