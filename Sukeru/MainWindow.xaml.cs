@@ -27,7 +27,6 @@ namespace MifuminSoft.Sukeru
                     catch (Exception)
                     {
                     }
-
                 }
             }
         }
