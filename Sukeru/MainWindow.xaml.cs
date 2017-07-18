@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace MifuminSoft.Sukeru
 {
@@ -10,6 +13,19 @@ namespace MifuminSoft.Sukeru
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Color selectedColor;
+
+        public Color SelectedColor
+        {
+            get { return selectedColor; }
+            set
+            {
+                selectedColor = value;
+                Background = new SolidColorBrush(value);
+            }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,12 +74,43 @@ namespace MifuminSoft.Sukeru
 
         private void ColorMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: 背景色を変える
+            SelectedColor = (Color)((MenuItem)sender).Tag;
         }
 
         private void Window_ContextMenuOpening(object sender, System.Windows.Controls.ContextMenuEventArgs e)
         {
-            // TODO: 初回オープン時に色の選択肢を作る
+            if (colorMenuItem.Items.Count == 0)
+            {
+                var type = typeof(Colors);
+                var properties = type.GetProperties();
+                foreach (var p in properties)
+                {
+                    var color = (Color)p.GetValue(null, null);
+                    if (color.A < 255)
+                    {
+                        continue;
+                    }
+
+                    var menuItem = new MenuItem()
+                    {
+                        Header = p.Name,
+                        Icon = new Rectangle()
+                        {
+                            Fill = new SolidColorBrush(color),
+                        },
+                        Tag = color,
+                        IsCheckable = true,
+                        IsChecked = color == SelectedColor,
+                    };
+                    menuItem.Click += ColorMenuItem_Click;
+                    colorMenuItem.Items.Add(menuItem);
+                }
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SelectedColor = Colors.White;
         }
     }
 }

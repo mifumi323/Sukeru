@@ -5,10 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MifuminSoft.Sukeru"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Opacity="0.5" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" AllowDrop="True" DragEnter="image_DragEnter" Drop="image_Drop" ContextMenuOpening="Window_ContextMenuOpening">
+        Title="MainWindow"
+        Height="350"
+        Width="525"
+        Opacity="0.5"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        AllowDrop="True"
+        DragEnter="image_DragEnter"
+        Drop="image_Drop"
+        ContextMenuOpening="Window_ContextMenuOpening"
+        Loaded="Window_Loaded">
     <Window.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="Color"/>
+            <MenuItem x:Name="colorMenuItem" Header="Color"/>
             <MenuItem Header="Exit" Click="ExitMenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
