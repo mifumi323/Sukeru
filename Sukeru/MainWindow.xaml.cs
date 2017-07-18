@@ -55,5 +55,15 @@ namespace MifuminSoft.Sukeru
         {
             Close();
         }
+
+        private void ColorMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: 背景色を変える
+        }
+
+        private void Window_ContextMenuOpening(object sender, System.Windows.Controls.ContextMenuEventArgs e)
+        {
+            // TODO: 初回オープン時に色の選択肢を作る
+        }
     }
 }
