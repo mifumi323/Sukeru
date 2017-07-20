@@ -20,6 +20,7 @@
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem x:Name="colorMenuItem" Header="Color"/>
+            <MenuItem Header="TopMost" Click="TopMostMenuItem_Click" IsCheckable="True"/>
             <MenuItem Header="Exit" Click="ExitMenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>

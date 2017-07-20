@@ -112,5 +112,10 @@ namespace MifuminSoft.Sukeru
         {
             SelectedColor = Colors.White;
         }
+
+        private void TopMostMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Topmost = ((MenuItem)sender).IsChecked;
+        }
     }
 }
