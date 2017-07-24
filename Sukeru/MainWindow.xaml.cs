@@ -75,6 +75,10 @@ namespace MifuminSoft.Sukeru
         private void ColorMenuItem_Click(object sender, RoutedEventArgs e)
         {
             SelectedColor = (Color)((MenuItem)sender).Tag;
+            foreach (MenuItem menuItem in colorMenuItem.Items)
+            {
+                menuItem.IsChecked = ((Color)menuItem.Tag) == SelectedColor;
+            }
         }
 
         private void Window_ContextMenuOpening(object sender, System.Windows.Controls.ContextMenuEventArgs e)
