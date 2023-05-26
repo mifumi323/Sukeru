@@ -13,8 +13,8 @@
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
         AllowDrop="True"
-        DragEnter="image_DragEnter"
-        Drop="image_Drop"
+        DragEnter="Image_DragEnter"
+        Drop="Image_Drop"
         ContextMenuOpening="Window_ContextMenuOpening"
         Loaded="Window_Loaded">
     <Window.ContextMenu>
@@ -25,7 +25,7 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
-        <Image x:Name="image" DragEnter="image_DragEnter" Drop="image_Drop" AllowDrop="True"/>
+        <Image x:Name="image" DragEnter="Image_DragEnter" Drop="Image_Drop" AllowDrop="True"/>
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
             <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"/>
             <ComboBox x:Name="widthUnitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">

@@ -47,15 +47,14 @@ namespace MifuminSoft.Sukeru
             }
         }
 
-        private void image_DragEnter(object sender, DragEventArgs e)
+        private void Image_DragEnter(object sender, DragEventArgs e)
         {
             e.Effects = DragDropEffects.All;
         }
 
-        private void image_Drop(object sender, DragEventArgs e)
+        private void Image_Drop(object sender, DragEventArgs e)
         {
-            var files = e.Data.GetData(DataFormats.FileDrop) as string[];
-            if (files != null && files.Length > 0)
+            if (e.Data.GetData(DataFormats.FileDrop) is string[] files && files.Length > 0)
             {
                 try
                 {
