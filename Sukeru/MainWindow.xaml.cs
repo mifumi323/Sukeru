@@ -25,12 +25,16 @@ namespace MifuminSoft.Sukeru
             }
         }
 
-        private bool processing = false;
+        private bool processing = true;
 
         public MainWindow()
         {
             InitializeComponent();
             MouseLeftButtonDown += (sender, e) => { DragMove(); };
+
+            widthTextBox.Text = Width.ToString();
+            heightTextBox.Text = Height.ToString();
+            processing = false;
 
             if (App.CommandLineArgs?.Length > 0)
             {
@@ -137,6 +141,46 @@ namespace MifuminSoft.Sukeru
                 processing = true;
                 widthTextBox.Text = Width.ToString();
                 heightTextBox.Text = Height.ToString();
+            }
+            finally
+            {
+                processing = false;
+            }
+        }
+
+        private void WidthTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (processing)
+            {
+                return;
+            }
+            try
+            {
+                processing = true;
+                if (double.TryParse(widthTextBox.Text, out var width) && width > 0)
+                {
+                    Width = width;
+                }
+            }
+            finally
+            {
+                processing = false;
+            }
+        }
+
+        private void HeightTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (processing)
+            {
+                return;
+            }
+            try
+            {
+                processing = true;
+                if (double.TryParse(heightTextBox.Text, out var height) && height > 0)
+                {
+                    Height = height;
+                }
             }
             finally
             {

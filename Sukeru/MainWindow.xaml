@@ -28,13 +28,13 @@
     <Grid>
         <Image x:Name="image" DragEnter="Image_DragEnter" Drop="Image_Drop" AllowDrop="True"/>
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-            <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="WidthTextBox_TextChanged"/>
             <ComboBox x:Name="widthUnitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">
                 <ComboBoxItem Content="px"/>
                 <ComboBoxItem Content="%"/>
             </ComboBox>
             <Label VerticalAlignment="Center" VerticalContentAlignment="Center">x</Label>
-            <TextBox x:Name="heightTextBox" Text="456" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="heightTextBox" Text="456" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="HeightTextBox_TextChanged"/>
             <ComboBox x:Name="heightUnitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">
                 <ComboBoxItem Content="px"/>
                 <ComboBoxItem Content="%"/>
