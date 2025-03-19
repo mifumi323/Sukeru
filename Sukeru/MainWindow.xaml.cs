@@ -36,14 +36,19 @@ namespace MifuminSoft.Sukeru
                 var path = App.CommandLineArgs[0];
                 if (File.Exists(path))
                 {
-                    try
-                    {
-                        image.Source = new BitmapImage(new Uri(path));
-                    }
-                    catch (Exception)
-                    {
-                    }
+                    LoadImageFromFile(path);
                 }
+            }
+        }
+
+        private void LoadImageFromFile(string path)
+        {
+            try
+            {
+                image.Source = new BitmapImage(new Uri(path));
+            }
+            catch (Exception)
+            {
             }
         }
 
@@ -56,13 +61,7 @@ namespace MifuminSoft.Sukeru
         {
             if (e.Data.GetData(DataFormats.FileDrop) is string[] files && files.Length > 0)
             {
-                try
-                {
-                    image.Source = new BitmapImage(new Uri(files[0]));
-                }
-                catch (Exception)
-                {
-                }
+                LoadImageFromFile(files[0]);
             }
         }
 
