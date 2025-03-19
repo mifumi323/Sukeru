@@ -25,6 +25,7 @@ namespace MifuminSoft.Sukeru
             }
         }
 
+        private bool processing = false;
 
         public MainWindow()
         {
@@ -45,10 +46,15 @@ namespace MifuminSoft.Sukeru
         {
             try
             {
+                processing = true;
                 image.Source = new BitmapImage(new Uri(path));
             }
             catch (Exception)
             {
+            }
+            finally
+            {
+                processing = false;
             }
         }
 
