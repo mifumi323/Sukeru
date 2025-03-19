@@ -125,5 +125,23 @@ namespace MifuminSoft.Sukeru
         {
             Topmost = ((MenuItem)sender).IsChecked;
         }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (processing)
+            {
+                return;
+            }
+            try
+            {
+                processing = true;
+                widthTextBox.Text = Width.ToString();
+                heightTextBox.Text = Height.ToString();
+            }
+            finally
+            {
+                processing = false;
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@
         DragEnter="Image_DragEnter"
         Drop="Image_Drop"
         ContextMenuOpening="Window_ContextMenuOpening"
+        SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded">
     <Window.ContextMenu>
         <ContextMenu>
