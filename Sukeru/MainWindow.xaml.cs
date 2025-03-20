@@ -53,6 +53,10 @@ namespace MifuminSoft.Sukeru
             {
                 processing = true;
                 image.Source = new BitmapImage(new Uri(path));
+                if (unitComboBox.Text == "%")
+                {
+                    UpdateSizeByImage();
+                }
             }
             catch (Exception)
             {
@@ -160,14 +164,7 @@ namespace MifuminSoft.Sukeru
                 processing = true;
                 if (double.TryParse(widthTextBox.Text, out var width) && width > 0)
                 {
-                    if (unitComboBox.Text == "px")
-                    {
-                        Width = width;
-                    }
-                    else
-                    {
-                        // TODO: %指定
-                    }
+                    Width = width;
                 }
             }
             finally
@@ -187,14 +184,7 @@ namespace MifuminSoft.Sukeru
                 processing = true;
                 if (double.TryParse(heightTextBox.Text, out var height) && height > 0)
                 {
-                    if (unitComboBox.Text == "px")
-                    {
-                        Height = height;
-                    }
-                    else
-                    {
-                        // TODO: %指定
-                    }
+                    Height = height;
                 }
             }
             finally
@@ -203,9 +193,39 @@ namespace MifuminSoft.Sukeru
             }
         }
 
-        private void percentTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void PercentTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // TODO: %指定
+            if (processing)
+            {
+                return;
+            }
+            try
+            {
+                UpdateSizeByImage();
+            }
+            finally
+            {
+                processing = false;
+            }
+        }
+
+        private void UpdateSizeByImage()
+        {
+            if (image.Source is not BitmapSource bitmap)
+            {
+                return;
+            }
+            var width = bitmap.Width;
+            var height = bitmap.Height;
+            if (double.TryParse(percentTextBox.Text, out var percent) && percent > 0)
+            {
+                width = bitmap.Width * percent / 100;
+                height = bitmap.Height * percent / 100;
+            }
+            Width = width;
+            Height = height;
+            widthTextBox.Text = width.ToString();
+            heightTextBox.Text = height.ToString();
         }
 
         private void UnitComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
