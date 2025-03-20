@@ -21,6 +21,7 @@
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem x:Name="colorMenuItem" Header="Color"/>
+            <MenuItem x:Name="opacityMenuItem" Header="Opacity"/>
             <MenuItem Header="TopMost" Click="TopMostMenuItem_Click" IsCheckable="True"/>
             <MenuItem x:Name="specifySizeMenuItem" Header="Specify Size" Click="SpecifySizeMenuItemMenuItem_Click" IsChecked="True"/>
             <MenuItem Header="Exit" Click="ExitMenuItem_Click"/>
