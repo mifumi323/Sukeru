@@ -123,6 +123,29 @@ namespace MifuminSoft.Sukeru
                     colorMenuItem.Items.Add(menuItem);
                 }
             }
+            if (opacityMenuItem.Items.Count == 0)
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    var opacity = i * 10;
+                    var menuItem = new MenuItem()
+                    {
+                        Header = $"{opacity}%",
+                        Tag = opacity,
+                        IsCheckable = true,
+                        IsChecked = opacity / 100.0 == Opacity,
+                    };
+                    menuItem.Click += (s, _) =>
+                    {
+                        Opacity = (int)((MenuItem)s).Tag / 100.0;
+                        foreach (MenuItem item in opacityMenuItem.Items)
+                        {
+                            item.IsChecked = item == s;
+                        }
+                    };
+                    opacityMenuItem.Items.Add(menuItem);
+                }
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
