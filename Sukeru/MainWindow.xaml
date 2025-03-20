@@ -13,16 +13,34 @@
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
         AllowDrop="True"
-        DragEnter="image_DragEnter"
-        Drop="image_Drop"
+        DragEnter="Image_DragEnter"
+        Drop="Image_Drop"
         ContextMenuOpening="Window_ContextMenuOpening"
+        SizeChanged="Window_SizeChanged"
         Loaded="Window_Loaded">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem x:Name="colorMenuItem" Header="Color"/>
             <MenuItem Header="TopMost" Click="TopMostMenuItem_Click" IsCheckable="True"/>
+            <MenuItem x:Name="specifySizeMenuItem" Header="Specify Size" Click="SpecifySizeMenuItemMenuItem_Click" IsChecked="True"/>
             <MenuItem Header="Exit" Click="ExitMenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
-    <Image x:Name="image" DragEnter="image_DragEnter" Drop="image_Drop" AllowDrop="True"/>
+    <Grid>
+        <Image x:Name="image" DragEnter="Image_DragEnter" Drop="Image_Drop" AllowDrop="True"/>
+        <StackPanel x:Name="sizePanel" VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+            <StackPanel Orientation="Horizontal" Name="absoluteSizePanel">
+                <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="WidthTextBox_TextChanged"/>
+                <Label VerticalAlignment="Center" VerticalContentAlignment="Center">x</Label>
+                <TextBox x:Name="heightTextBox" Text="456" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="HeightTextBox_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="percentSizePanel">
+                <TextBox x:Name="percentTextBox" Text="100" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="PercentTextBox_TextChanged"/>
+            </StackPanel>
+            <ComboBox x:Name="unitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="UnitComboBox_SelectionChanged">
+                <ComboBoxItem Content="px"/>
+                <ComboBoxItem Content="%"/>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
 </Window>
