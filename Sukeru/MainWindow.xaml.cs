@@ -159,7 +159,14 @@ namespace MifuminSoft.Sukeru
                 processing = true;
                 if (double.TryParse(widthTextBox.Text, out var width) && width > 0)
                 {
-                    Width = width;
+                    if (unitComboBox.Text == "px")
+                    {
+                        Width = width;
+                    }
+                    else
+                    {
+                        // TODO: %指定
+                    }
                 }
             }
             finally
@@ -179,7 +186,14 @@ namespace MifuminSoft.Sukeru
                 processing = true;
                 if (double.TryParse(heightTextBox.Text, out var height) && height > 0)
                 {
-                    Height = height;
+                    if (unitComboBox.Text == "px")
+                    {
+                        Height = height;
+                    }
+                    else
+                    {
+                        // TODO: %指定
+                    }
                 }
             }
             finally
