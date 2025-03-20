@@ -28,13 +28,18 @@
     <Grid>
         <Image x:Name="image" DragEnter="Image_DragEnter" Drop="Image_Drop" AllowDrop="True"/>
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-            <ComboBox x:Name="unitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel Orientation="Horizontal" Name="absoluteSizePanel">
+                <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="WidthTextBox_TextChanged"/>
+                <Label VerticalAlignment="Center" VerticalContentAlignment="Center">x</Label>
+                <TextBox x:Name="heightTextBox" Text="456" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="HeightTextBox_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="percentSizePanel">
+                <TextBox x:Name="percentTextBox" Text="100" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="percentTextBox_TextChanged"/>
+            </StackPanel>
+            <ComboBox x:Name="unitComboBox" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="UnitComboBox_SelectionChanged">
                 <ComboBoxItem Content="px"/>
                 <ComboBoxItem Content="%"/>
             </ComboBox>
-            <TextBox x:Name="widthTextBox" Text="123" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="WidthTextBox_TextChanged"/>
-            <Label VerticalAlignment="Center" VerticalContentAlignment="Center">x</Label>
-            <TextBox x:Name="heightTextBox" Text="456" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" TextChanged="HeightTextBox_TextChanged"/>
         </StackPanel>
     </Grid>
 </Window>

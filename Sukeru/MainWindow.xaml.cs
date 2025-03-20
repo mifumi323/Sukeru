@@ -34,6 +34,7 @@ namespace MifuminSoft.Sukeru
 
             widthTextBox.Text = Width.ToString();
             heightTextBox.Text = Height.ToString();
+            UpdateSizePanels();
             processing = false;
 
             if (App.CommandLineArgs?.Length > 0)
@@ -200,6 +201,35 @@ namespace MifuminSoft.Sukeru
             {
                 processing = false;
             }
+        }
+
+        private void percentTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // TODO: %指定
+        }
+
+        private void UnitComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (processing)
+            {
+                return;
+            }
+            try
+            {
+                processing = true;
+                UpdateSizePanels();
+            }
+            finally
+            {
+                processing = false;
+            }
+        }
+
+        private void UpdateSizePanels()
+        {
+            var selected = (unitComboBox.SelectedItem as ComboBoxItem).Content;
+            absoluteSizePanel.Visibility = selected.Equals("px") ? Visibility.Visible : Visibility.Collapsed;
+            percentSizePanel.Visibility = selected.Equals("%") ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }
