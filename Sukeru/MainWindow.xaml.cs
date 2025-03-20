@@ -251,5 +251,11 @@ namespace MifuminSoft.Sukeru
             absoluteSizePanel.Visibility = selected.Equals("px") ? Visibility.Visible : Visibility.Collapsed;
             percentSizePanel.Visibility = selected.Equals("%") ? Visibility.Visible : Visibility.Collapsed;
         }
+
+        private void SpecifySizeMenuItemMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            specifySizeMenuItem.IsChecked = !specifySizeMenuItem.IsChecked;
+            sizePanel.Visibility = specifySizeMenuItem.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+        }
     }
 }
